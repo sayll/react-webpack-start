@@ -1,6 +1,6 @@
 const base = require('../base/base'),
       files     = require('../base/files'),
-      //HappyPack = require('happypack'),
+      HappyPack = require('happypack'),
       webpack   = require('webpack');
 let vendorsJson = files.dllPath + '/vendors.json';
 
@@ -51,7 +51,7 @@ module.exports = [
         ]
     }
   }),
-  /*new HappyPack({
+  new HappyPack({
     id          : 'cJSX',
     cache       : true,
     cacheContext: {
@@ -61,5 +61,5 @@ module.exports = [
       loader: 'babel-loader',
       query : require('./babel')
     }]
-  })*/
+  })
 ];

@@ -7,11 +7,11 @@ let babel = {
         "modules": false
       }
     ],
-    'latest',
-    'stage-0',
+    //'latest',
+    //'stage-0',
     'react'
   ],
-  'plugins': ['transform-runtime'],
+  /*'plugins': ['transform-runtime'],
   'env': {
     'development': {
       'presets': ['react-hmre']
@@ -19,7 +19,7 @@ let babel = {
     'production': {
       'presets': []
     }
-  }
+  }*/
 };
 
 if (!!process.env.NODE_TEST) { // 启用测试模式
