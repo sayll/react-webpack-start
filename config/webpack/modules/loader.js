@@ -9,11 +9,7 @@ module.exports = (dev) => {
         test: /\.(js|jsx)$/,
         exclude: [],
         include: [files.viewPath, files.staticPath, files.jsPath, files.htmlPath],
-        use: ['happypack/loader?id=cJSX'],
-        //use: [{
-        //  loader: 'babel-loader',
-        //  query: require('./babel')
-        //}]
+        use: ['happypack/loader?id=cJSX']
       },
 
       {
