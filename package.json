@@ -128,6 +128,12 @@
     "webpack-visualizer-plugin": "^0.1.10"
   },
   "peerDependencies": {
-    "happypack": "^3.0.2"
+    "eslint": "^3.17.0",
+    "eslint-config-airbnb": "^14.1.0",
+    "eslint-loader": "^1.6.3",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^4.0.0",
+    "eslint-plugin-react": "^6.10.0",
+    "babel-eslint": "^7.1.1"
   }
 }

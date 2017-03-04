@@ -5,6 +5,13 @@ module.exports = (dev) => {
   return {
     //noParse: /jquery|vue/, // 忽略某些查找的库，提高构建速度
     rules: [
+      /*{
+        test: /\.jsx$|\.js$/,
+        enforce: "pre",
+        loader: 'eslint-loader',
+        include: files.appPath,
+        exclude: /bundle\.js$/
+      },*/
       {
         test: /\.(js|jsx)$/,
         exclude: [],
