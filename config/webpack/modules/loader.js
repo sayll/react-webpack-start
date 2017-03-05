@@ -17,7 +17,6 @@ module.exports = (dev) => {
         include: [files.viewPath, files.staticPath, files.jsPath, files.htmlPath],
         use: ['happypack/loader?id=JSX']
       },
-
       {
         test: /\.(css|pcss)$/, // 标准的CSS编译
         include: [files.viewPath, files.cssPath],
@@ -38,41 +37,19 @@ module.exports = (dev) => {
       {
         test: /\.(html)$/,
         include: [files.htmlPath],
-        use: ['html-loader']
+        use: ['happypack/loader?id=HTML']
       },
 
       {
         test: /\.(jpg|jpeg|png|gif|svg)$/,
         include: [files.imgPath, files.viewPath],
-        use: [
-          {
-            loader: 'url-loader',
-            query: {
-              limit: 2000,
-              name: 'assets/[name]-[hash:8].[ext]'
-            }
-          },
-          {
-            loader: 'image-webpack-loader',
-            query: {
-              optimizationLevel: 7
-            }
-          }
-        ]
+        use: ['happypack/loader?id=IMAGE']
       },
 
       {
         test: /\.(svg|ico|woff|eot|ttf)$/,
         include: [files.fontPath, files.viewPath],
-        use: [
-          {
-            loader: 'url-loader',
-            query: {
-              limit: 1,
-              name: 'assets/[name]-[hash:8].[ext]'
-            }
-          }
-        ]
+        use:['happypack/loader?id=FILE']
       }
     ]
   };
