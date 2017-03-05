@@ -52,7 +52,7 @@ module.exports = [
     }
   }),
   new HappyPack({
-    id          : 'cJSX',
+    id          : 'JSX',
     cache       : true,
     cacheContext: {
       env: process.env.NODE_ENV
@@ -61,5 +61,13 @@ module.exports = [
       loader: 'babel-loader',
       query : require('./babel')
     }]
+  }),
+  new HappyPack({
+    id          : 'ESLint',
+    cache       : true,
+    cacheContext: {
+      env: process.env.NODE_ENV
+    },
+    loaders     : ['eslint-loader']
   })
 ];

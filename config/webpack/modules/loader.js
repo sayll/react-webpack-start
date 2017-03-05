@@ -8,15 +8,14 @@ module.exports = (dev) => {
       {
         test: /\.jsx$|\.js$/,
         enforce: "pre",
+        exclude: [],
         include: [files.viewPath],
-        //exclude: files.buildPath,
-        loader: 'eslint-loader'
+        use: ['happypack/loader?id=ESLint']
       },
       {
         test: /\.(js|jsx)$/,
-        exclude: [],
         include: [files.viewPath, files.staticPath, files.jsPath, files.htmlPath],
-        use: ['happypack/loader?id=cJSX']
+        use: ['happypack/loader?id=JSX']
       },
 
       {
