@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Router, Route, hashHistory, Link } from 'react-router';
-// import Slider from './components/slider/slider'
+import { Slider } from './components/Slider';
 
 
 function T(props) {
@@ -24,7 +24,10 @@ T.propTypes = {
 };
 
 const T1 = () => (
-  <div>t1`</div>
+  <div>
+    t1`
+    <Slider namm="ken" />
+  </div>
 );
 
 const T2 = () => (

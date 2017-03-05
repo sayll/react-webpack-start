@@ -22,6 +22,7 @@ module.exports = {
 
   "rules": {
     "no-console": "off",
+    // "arrow-parens": ["as-needed"],
     "indent": [
       "error",
       2
@@ -39,7 +40,7 @@ module.exports = {
       "always"
     ],
     "react/jsx-uses-vars": 1,
-    "react/jsx-filename-extension": [1, {"extensions": [".js", ".jsx"]}],
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
   },
 
   "globals": {
