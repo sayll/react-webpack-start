@@ -68,7 +68,7 @@ module.exports = [
   }),
   cHappypack('ESLint', ['eslint-loader']),
   cHappypack('HTML', ['html-loader']),
-  cHappypack('IMAGE', [
+  /*cHappypack('IMAGE', [
     {
       loader: 'url-loader',
       query: {
@@ -79,10 +79,14 @@ module.exports = [
     {
       loader: 'image-webpack-loader',
       query: {
-        optimizationLevel: 7
+        progressive: true,
+        pngquant: {
+          quality: '65-90',
+          speed: 4
+        }
       }
     }
-  ]),
+  ]),*/
   cHappypack('FILE', [
     {
       loader: 'url-loader',

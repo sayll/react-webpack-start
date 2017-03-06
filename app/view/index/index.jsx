@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import { Router, Route, hashHistory, Link } from 'react-router';
 import { Slider } from './components/Slider';
 
-
 function T(props) {
   return (
     <div>

@@ -43,13 +43,30 @@ module.exports = (dev) => {
       {
         test: /\.(jpg|jpeg|png|gif|svg)$/,
         include: [files.imgPath, files.viewPath],
-        use: ['happypack/loader?id=IMAGE']
+        use: [/*'happypack/loader?id=IMAGE'*/
+          {
+            loader: 'url-loader',
+            query: {
+              limit: 2000,
+              name: 'assets/[name]-[hash:8].[ext]'
+            }
+          },
+          {
+            loader: 'image-webpack-loader',
+            query: {
+              progressive: true,
+              pngquant: {
+                quality: '65-90',
+                speed: 4
+              }
+            }
+          }]
       },
 
       {
         test: /\.(svg|ico|woff|eot|ttf)$/,
         include: [files.fontPath, files.viewPath],
-        use:['happypack/loader?id=FILE']
+        use: ['happypack/loader?id=FILE']
       }
     ]
   };
