@@ -3,24 +3,35 @@ import ReactDOM from 'react-dom';
 import { Router, Route, hashHistory, Link } from 'react-router';
 import { Slider } from './components/Slider';
 
-function T(props) {
-  return (
-    <div>
-      <Link to="t1">1</Link>
-      <br />
-      {props.children}
-      <Link to="t2">2</Link>
-    </div >
-  );
+class T extends React.Component {
+  static propTypes() {
+    return {
+      children: React.PropTypes.node
+    };
+  }
+
+  static defaultProps() {
+    return {
+      children: null,
+    };
+  }
+
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+
+  render() {
+    return (
+      <div>
+        <Link to="t1">1</Link>
+        <br />
+        {this.props.children}
+        <Link to="t2">2</Link>
+      </div >
+    );
+  }
 }
-
-T.defaultProps = {
-  children: null,
-};
-
-T.propTypes = {
-  children: React.PropTypes.node
-};
 
 const T1 = () => (
   <div>
