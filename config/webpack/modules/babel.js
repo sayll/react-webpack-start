@@ -8,16 +8,23 @@ let babel = {
       }
     ],
     'latest',
-    'stage-0',
+    'stage-2',
+    // Stage 2 is "draft", 4 is finished, 0 is strawman.
     'react'
   ],
-  'plugins': ['transform-runtime'],
+
   'env': {
     'development': {
-      'presets': ['react-hmre']
+      'plugins': [
+        'transform-runtime',
+        "react-hot-loader/babel"
+      ],
     },
+
     'production': {
-      'presets': []
+      'plugins': [
+        'transform-runtime',
+      ],
     }
   }
 };

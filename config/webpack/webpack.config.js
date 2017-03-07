@@ -6,32 +6,32 @@ const base              = require('./base/base.js'),
       HtmlWebpackPlugin = require('html-webpack-plugin'),
       ExtractTextPlugin = require('extract-text-webpack-plugin');
 
-module.exports = (option = {dev: process.env.NODE_ENV === 'development'}) => ((Glob, objConcat, createHtml) => {
+module.exports = (option = { dev: process.env.NODE_ENV === 'development' }) => ((Glob, objConcat, createHtml) => {
 
-    let Config = {
-      entry: objConcat(Glob.fileCss, objConcat(Glob.fileJs, require('./modules/entry'))),
-      resolve: require('./modules/resolve'),
-      output: {
-        path: path.join(files.root, files.buildName),
-        publicPath: base.cdnPath, //资源文件引用路径
-        filename: Glob.jsBundle,
-        crossOriginLoading: false, // 是否允许跨域加载[anonymous,use-credentials,false]
-        chunkFilename: files.jsPath + '/asyn/[name].js',
-        sourceMapFilename: '[file].map'
-      },
-      module: require('./modules/loader')(option.dev),
-      plugins: require('./modules/plugins')
-    };
+  let Config = {
+    entry: objConcat(Glob.fileCss, objConcat(Glob.fileJs, require('./modules/entry'))),
+    resolve: require('./modules/resolve'),
+    output: {
+      path: path.join(files.root, files.buildName),
+      publicPath: base.cdnPath, //资源文件引用路径
+      filename: Glob.jsBundle,
+      crossOriginLoading: false, // 是否允许跨域加载[anonymous,use-credentials,false]
+      chunkFilename: files.jsPath + '/asyn/[name].js',
+      sourceMapFilename: '[file].map'
+    },
+    module: require('./modules/loader')(option.dev),
+    plugins: require('./modules/plugins')
+  };
 
-    Config.plugins.push(new ExtractTextPlugin(Glob.cssBundle));
+  Config.plugins.push(new ExtractTextPlugin(Glob.cssBundle));
 
-    /**
-     * 创建所有的视图模块
-     * */
-    createHtml(Config, Glob.fileHtml, files.htmlPath, base.viewType, option.dev);
+  /**
+   * 创建所有的视图模块
+   * */
+  createHtml(Config, Glob.fileHtml, files.htmlPath, base.viewType, option.dev);
 
-    return Config;
-  })(
+  return Config;
+})(
   /**
    * 处理所需文件的文件目录，输出对应文件的对象
    * */
@@ -131,6 +131,8 @@ module.exports = (option = {dev: process.env.NODE_ENV === 'development'}) => ((G
     if (debug) {
       Object.keys(config.entry).forEach((e) => {
         config.entry[e].unshift(
+          'react-hot-loader/patch',
+          // activate HMR for React
           'webpack-hot-middleware/client?reload=true'
           //'eventsource-polyfill' // 热替换兼容IE
         )

@@ -3,7 +3,13 @@ const base       = require('./base/base.js'),
       path       = require('path'),
       webpack    = require('webpack'),
       Visualizer = require('webpack-visualizer-plugin');
-const vendors    = [
+const vendors = [
+  /**
+   * babel-polyfill 支持到es5
+   * */
+  "babel-polyfill",
+
+  // 其他依赖
   'react',
   'react-dom',
   'react-redux',
@@ -13,18 +19,18 @@ const vendors    = [
 ];
 
 module.exports = {
-  output : {
-    path    : files.dllPath,
+  output: {
+    path: files.dllPath,
     filename: '[name].js',
-    library : '[name]',
+    library: '[name]',
   },
-  entry  : {
+  entry: {
     vendor: vendors,
   },
   plugins: [
     new webpack.DllPlugin({
-      path   : path.join(files.dllPath, 'vendors.json'),
-      name   : '[name]',
+      path: path.join(files.dllPath, 'vendors.json'),
+      name: '[name]',
       context: '/',
     }),
     new webpack.DefinePlugin({
