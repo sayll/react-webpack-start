@@ -20,16 +20,6 @@ function cHappypack(id, loaders) {
 const vendorsJson = files.dllPath + '/vendors.json';
 
 module.exports = [
-  new webpack.NoEmitOnErrorsPlugin(),
-  new webpack.DefinePlugin({
-    'process.env': {
-      NODE_ENV: JSON.stringify(process.env.NODE_ENV),
-    },
-  }),
-  new webpack.DllReferencePlugin({
-    context: '/',
-    manifest: require(vendorsJson)
-  }),
   new webpack.LoaderOptionsPlugin({
     minimize: true,
     options: {
@@ -66,36 +56,18 @@ module.exports = [
       ]
     }
   }),
+  new webpack.NoEmitOnErrorsPlugin(),
+  new webpack.DefinePlugin({
+    'process.env': {
+      NODE_ENV: JSON.stringify(process.env.NODE_ENV),
+    },
+  }),
+  new webpack.DllReferencePlugin({
+    context: '/',
+    manifest: require(vendorsJson)
+  }),
   cHappypack('ESLint', ['eslint-loader']),
   cHappypack('HTML', ['html-loader']),
-  /*cHappypack('IMAGE', [
-    {
-      loader: 'url-loader',
-      query: {
-        limit: 2000,
-        name: 'assets/[name]-[hash:8].[ext]'
-      }
-    },
-    {
-      loader: 'image-webpack-loader',
-      query: {
-        progressive: true,
-        pngquant: {
-          quality: '65-90',
-          speed: 4
-        }
-      }
-    }
-  ]),*/
-  cHappypack('FILE', [
-    {
-      loader: 'url-loader',
-      query: {
-        limit: 1,
-        name: 'assets/[name]-[hash:8].[ext]'
-      }
-    }
-  ]),
   cHappypack('JSX', [{
     loader: 'babel-loader',
     query: require('./babel')

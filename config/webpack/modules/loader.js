@@ -3,7 +3,6 @@ const base  = require('../base/base'),
 
 module.exports = (dev) => {
   return {
-    //noParse: /jquery|vue/, // 忽略某些查找的库，提高构建速度
     rules: [
       {
         test: /\.jsx$|\.js$/,
@@ -20,7 +19,7 @@ module.exports = (dev) => {
       {
         test: /\.(css|pcss)$/, // 标准的CSS编译
         include: [files.viewPath, files.cssPath],
-        loaders: require('extract-text-webpack-plugin').extract({
+        use: require('extract-text-webpack-plugin').extract({
           fallback: 'style-loader',
           use: [{
             loader: 'css-loader',
@@ -42,8 +41,8 @@ module.exports = (dev) => {
 
       {
         test: /\.(jpg|jpeg|png|gif|svg)$/,
-        include: [files.imgPath, files.viewPath],
-        use: [/*'happypack/loader?id=IMAGE'*/
+        include: [files.appPath],
+        use: [
           {
             loader: 'url-loader',
             query: {
@@ -60,13 +59,21 @@ module.exports = (dev) => {
                 speed: 4
               }
             }
-          }]
+          }
+        ]
       },
 
       {
         test: /\.(svg|ico|woff|eot|ttf)$/,
-        include: [files.fontPath, files.viewPath],
-        use: ['happypack/loader?id=FILE']
+        include: [files.appPath],
+        use: [{
+          loader: 'url-loader',
+          query: {
+            limit: 1,
+            publicPath: '../../',
+            name: 'assets/[name]-[hash:8].[ext]'
+          }
+        }]
       }
     ]
   };
