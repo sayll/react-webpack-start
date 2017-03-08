@@ -20,8 +20,10 @@ function cHappypack(id, loaders) {
 const vendorsJson = files.dllPath + '/vendors.json';
 
 module.exports = [
+
   new webpack.LoaderOptionsPlugin({
     minimize: true,
+    debug: false,
     options: {
       context: files.appPath,
       postcss: [
@@ -56,18 +58,24 @@ module.exports = [
       ]
     }
   }),
+
   new webpack.NoEmitOnErrorsPlugin(),
+
   new webpack.DefinePlugin({
     'process.env': {
       NODE_ENV: JSON.stringify(process.env.NODE_ENV),
     },
   }),
+
   new webpack.DllReferencePlugin({
     context: '/',
     manifest: require(vendorsJson)
   }),
+
   cHappypack('ESLint', ['eslint-loader']),
+
   cHappypack('HTML', ['html-loader']),
+
   cHappypack('JSX', [{
     loader: 'babel-loader',
     query: require('./babel')
