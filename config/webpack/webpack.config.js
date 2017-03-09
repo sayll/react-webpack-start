@@ -16,7 +16,7 @@ module.exports = (option = { dev: process.env.NODE_ENV === 'development' }) => (
       path: path.join(files.root, files.buildName),
       publicPath: base.cdnPath, //资源文件引用路径
       crossOriginLoading: false, // 是否允许跨域加载[anonymous,use-credentials,false]
-      chunkFilename: files.buildPath + '/asyn/[name].js',
+      chunkFilename: 'async/[name].js',
       // library: 'x', 导出单文件库
       // libraryTarget: 'umd'
     },

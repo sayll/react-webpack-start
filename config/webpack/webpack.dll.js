@@ -28,6 +28,7 @@ module.exports = {
     vendor: vendors,
   },
   plugins: [
+    new webpack.optimize.UglifyJsPlugin(),
     new webpack.DllPlugin({
       path: path.join(files.dllPath, 'vendors.json'),
       name: '[name]',

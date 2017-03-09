@@ -4,5 +4,5 @@ module.exports = {
   devPort: '3000',
   viewType: 'html', // pug,jade,html...
   cssType: 'pcss', // sass,scss,less,pcss,css...
-  cdnPath: '/', // 资源指向位置,可寄放CDN
+  cdnPath: './', // 资源指向位置,可寄放CDN
 };

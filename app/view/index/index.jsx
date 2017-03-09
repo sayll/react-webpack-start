@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Ta } from './test';
+import { Ta } from './components/App';
 
 ReactDOM.render(
   <Ta />,

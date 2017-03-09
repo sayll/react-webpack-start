@@ -47,6 +47,7 @@ module.exports = (dev) => {
             loader: 'url-loader',
             query: {
               limit: 2000,
+              publicPath: '../../',
               name: 'assets/[name]-[hash:8].[ext]'
             }
           },

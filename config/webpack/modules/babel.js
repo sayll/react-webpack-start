@@ -8,11 +8,11 @@ let babel = {
       }
     ],
     'latest',
+    // Stage 2 is "draft", 4 is finished, 0 is strawMan.
     'stage-2',
-    // Stage 2 is "draft", 4 is finished, 0 is strawman.
     'react'
   ],
-
+  'plugins': [],
   'env': {
     'development': {
       'plugins': [
