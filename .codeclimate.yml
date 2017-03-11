@@ -8,6 +8,10 @@ engines:
       - javascript
   eslint:
     enabled: true
+    linebreak-style:
+      enabled: false
+    global-require:
+      enabled: false
   fixme:
     enabled: true
 ratings:
