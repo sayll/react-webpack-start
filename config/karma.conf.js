@@ -1,5 +1,5 @@
 const files = require('./webpack/base/files');
-
+const path = require('path');
 const debug = process.env.NODE_TEST === 'development';
 
 module.exports = cfg => cfg.set({
@@ -39,7 +39,13 @@ module.exports = cfg => cfg.set({
   // 测试完成，是否关闭浏览器
   singleRun: !debug,
   // 需要测试的浏览器
-  browsers: ['PhantomJS'],
+  browsers: ['Chrome'],
+  customLaunchers: {
+    Chrome_with_debugging: {
+      base: 'Chrome',
+      chromeDataDir: path.resolve(__dirname, '.chrome')
+    }
+  },
   // 超时退出
   captureTimeout: 60000,
   webpack: {
