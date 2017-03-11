@@ -3,6 +3,9 @@ languages:
   JavaScript: true
   PHP: true
   Python: true
+ratings:
+  paths:
+  - app/**
 exclude_paths:
   - "app/source/css/library/weui.css"
   - "app/static/tools/fetch.js"

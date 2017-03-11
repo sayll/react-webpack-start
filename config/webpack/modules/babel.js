@@ -14,7 +14,7 @@ let babel = {
     'react'
   ],
 
-  'plugins': ['transform-runtime',],
+  'plugins': ['transform-runtime'],
 
   'env': {
     'development': {
