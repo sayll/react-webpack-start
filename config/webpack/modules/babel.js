@@ -1,17 +1,17 @@
-let babel = {
+const babel = {
 
   cacheDirectory: true,
 
   'presets': [
     [
-      "es2015",
+      'es2015',
       {
-        "modules": false
+        'modules': false,
       }
     ],
     'stage-2',
     // Stage 2 is "draft", 4 is finished, 0 is strawMan.
-    'react'
+    'react',
   ],
 
   'plugins': ['transform-runtime'],
@@ -25,11 +25,11 @@ let babel = {
       'presets': [],
       'plugins': [],
     }
-  }
+  },
 
 };
 
-if (!!process.env.NODE_TEST) { // 启用测试模式
+if (process.env.NODE_TEST) { // 启用测试模式
   babel.plugins.push('istanbul');
 }
 
