@@ -6,13 +6,13 @@ const base            = require('./base/base.js'),
 let config = require('./webpack.config.js')({ dev: true });
 
 module.exports = merge(config, {
+
   devtool: "inline-source-map", // inline-source-map.cheap-source-map
-  stats: { // 控制台统计
-    minimal: true// 只有在发生错误或新编译时才输出
-  },
+
   performance: { // 关闭hot更新导致文件过大提示
     hints: false // 性能提示[warning,error,false]
   },
+
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     // enable HMR globally
@@ -26,4 +26,5 @@ module.exports = merge(config, {
       port: base.devPort
     }).setData)
   ],
+
 });

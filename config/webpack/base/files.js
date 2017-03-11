@@ -1,8 +1,8 @@
 const path = require('path');
 
 module.exports = ((filesName) => {
-  let files = filesName;
-  let appPath = path.resolve(filesName.root, files.appName);
+  const files = filesName;
+  const appPath = path.resolve(files.root, files.appName);
   files.appPath = appPath;
   files.buildPath = path.resolve(files.root, files.buildName);
   files.dllPath = path.resolve(files.root, files.buildName + '/dll');

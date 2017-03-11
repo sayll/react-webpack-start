@@ -2,7 +2,7 @@ import React from 'react';
 
 function Ta() {
   return (
-    <div>22</div>
+    <div>2232</div>
   );
 }
 export { Ta };

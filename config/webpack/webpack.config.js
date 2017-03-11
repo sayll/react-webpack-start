@@ -7,10 +7,13 @@ const base              = require('./base/base.js'),
       ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = (option = { dev: process.env.NODE_ENV === 'development' }) => ((Glob, objConcat, createHtml) => {
-
+  /**
+   * 配置文件
+   * */
   let Config = {
+
     entry: objConcat(Glob.fileCss, objConcat(Glob.fileJs, require('./modules/entry'))),
-    resolve: require('./modules/resolve'),
+
     output: {
       filename: Glob.jsBundle,
       path: path.join(files.root, files.buildName),
@@ -20,10 +23,19 @@ module.exports = (option = { dev: process.env.NODE_ENV === 'development' }) => (
       // library: 'x', 导出单文件库
       // libraryTarget: 'umd'
     },
-    module: require('./modules/loader')(option.dev),
-    plugins: require('./modules/plugins')
-  };
 
+    resolve: require('./modules/resolve'),
+
+    externals: require('./modules/externals'),
+
+    module: require('./modules/loader')(option.dev),
+
+    plugins: require('./modules/plugins')
+
+  };
+  /**
+   *  插件
+   * */
   Config.plugins.push(new ExtractTextPlugin(Glob.cssBundle));
 
   /**

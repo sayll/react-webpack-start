@@ -1,5 +1,7 @@
 let babel = {
+
   cacheDirectory: true,
+
   'presets': [
     [
       "es2015",
@@ -7,29 +9,28 @@ let babel = {
         "modules": false
       }
     ],
-    'latest',
-    // Stage 2 is "draft", 4 is finished, 0 is strawMan.
     'stage-2',
+    // Stage 2 is "draft", 4 is finished, 0 is strawMan.
     'react'
   ],
-  'plugins': [],
+
+  'plugins': ['transform-runtime',],
+
   'env': {
     'development': {
-      'plugins': [
-        'transform-runtime',
-        "react-hot-loader/babel"
-      ],
+      'presets': [],
+      'plugins': [],
     },
-
     'production': {
-      'plugins': [
-        'transform-runtime',
-      ],
+      'presets': [],
+      'plugins': [],
     }
   }
+
 };
 
 if (!!process.env.NODE_TEST) { // 启用测试模式
   babel.plugins.push('istanbul');
 }
+
 module.exports = babel;
