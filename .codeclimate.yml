@@ -12,8 +12,8 @@ engines:
     enabled: true
 ratings:
   paths:
-  - app/**
+  - app/**/*
 exclude_paths:
-  - app/static/tools/**
-  - app/source/font/**
-  - app/source/css/library/**
+  - app/static/tools/**/*
+  - app/source/font/**/*
+  - app/source/css/library/**/*
