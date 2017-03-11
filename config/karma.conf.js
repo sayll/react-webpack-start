@@ -41,9 +41,9 @@ module.exports = cfg => cfg.set({
   // 需要测试的浏览器
   browsers: ['Chrome'],
   customLaunchers: {
-    Chrome_with_debugging: {
+    Chrome_travis_ci: {
       base: 'Chrome',
-      chromeDataDir: path.resolve(__dirname, '.chrome')
+      flags: ['--no-sandbox']
     }
   },
   // 超时退出
