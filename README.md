@@ -4,5 +4,3 @@
 <b>IE9+ 用户请转至：[avalon-webpack-start](https://github.com/sayll/avalon-webpack-start)</b>
 
 <b>低版本IE 用户请转至：[ie-webpack-start](https://github.com/sayll/ie-webpack-start)</b>
-
-<b>Q群交流：617828832</b>
