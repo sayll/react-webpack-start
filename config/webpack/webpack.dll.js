@@ -7,15 +7,20 @@ const vendors = [
   /**
    * babel-polyfill 支持到es5
    * */
-  "babel-polyfill",
+  'babel-polyfill',
 
   // 其他依赖
+  'immutable',
   'react',
   'react-dom',
+  'react-hot-loader',
   'react-redux',
   'react-router',
   'redux',
-  'redux-saga'
+  'redux-immutablejs',
+  'redux-logger',
+  'redux-saga',
+  'redux-thunk',
 ];
 
 module.exports = {

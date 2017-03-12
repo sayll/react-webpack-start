@@ -1,8 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import todoApp from './reducer/index';
 import { AppContainer } from 'react-hot-loader';
 import { Ta } from './components/App';
 
+console.log(todoApp);
 
 const render = (Component) => {
   ReactDOM.render(
