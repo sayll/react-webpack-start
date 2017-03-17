@@ -8,9 +8,11 @@ import Footer from '../components/Footer';
 const App = ({ dispatch, visibleTodos, visibilityFilter }) => (
   <div>
     <AddTodo
-      onAddClick={text =>
-        dispatch(addTodo(text))
-      }
+      onAddClick={(text) => {
+        const id = this.a.b;
+        this.a.b += 1;
+        return dispatch(addTodo(text, id));
+      }}
     />
     <TodoList
       todos={visibleTodos}
@@ -26,7 +28,7 @@ const App = ({ dispatch, visibleTodos, visibilityFilter }) => (
     />
   </div>
 );
-
+App.b = 0;
 App.propTypes = {
   dispatch: PropTypes.func.isRequired,
   visibleTodos: PropTypes.arrayOf(PropTypes.shape({

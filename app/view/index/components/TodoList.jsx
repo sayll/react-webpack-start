@@ -4,13 +4,16 @@ import Todo from './Todo';
 export default function TodoList({ onTodoClick, todos }) {
   return (
     <ul>
-      {todos.map(todo =>
-        <Todo
-          {...todo}
-          key={todo.id}
-          onClick={() => onTodoClick(todo.id)}
-        />
-      )}
+      {todos.map((todo) => {
+        console.log(todo);
+        return (
+          <Todo
+            {...todo}
+            key={todo.id}
+            onClick={() => onTodoClick(todo.id)}
+          />
+        );
+      })}
     </ul>
   );
 }

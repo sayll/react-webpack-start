@@ -18,11 +18,13 @@ function todos(state = [], action) {
       return [
         ...state,
         {
+          id: action.id,
           text: action.text,
           completed: false,
         },
       ];
     case COMPLETE_TODO:
+      console.log(state);
       return [
         ...state.slice(0, action.index),
         Object.assign({}, state[action.index], {
