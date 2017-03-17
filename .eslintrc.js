@@ -23,10 +23,6 @@ module.exports = {
   "rules": {
     "no-console": "off",
     // "arrow-parens": ["as-needed"],
-    "indent": [
-      "error",
-      2
-    ],
     "linebreak-style": [
       "error",
       "windows"

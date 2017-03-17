@@ -4,6 +4,8 @@ const base       = require('./base/base.js'),
       webpack    = require('webpack'),
       Visualizer = require('webpack-visualizer-plugin');
 const vendors = [
+  // activate HMR for React
+  'react-hot-loader/patch',
   /**
    * babel-polyfill 支持到es5
    * */

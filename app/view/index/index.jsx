@@ -1,26 +1,17 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import todoApp from './reducer/index';
-import { AppContainer } from 'react-hot-loader';
-import { Ta } from './components/App';
+import { render } from 'react-dom';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+import App from './containers/App';
+import todoApp from './reducers';
 
-console.log(todoApp);
+const store = createStore(todoApp);
 
-const render = (Component) => {
-  ReactDOM.render(
-    <AppContainer>
-      <Component />
-    </AppContainer>,
-    /* global document:false */
-    /* eslint comma-dangle: 0 */
-    document.getElementById('body')
-  );
-};
-
-render(Ta);
-
-if (module.hot) {
-  module.hot.accept('./containers/App', () => {
-    render(Ta);
-  });
-}
+render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  /* global document: false*/
+  /* eslint comma-dangle: 0*/
+  document.getElementById('root')
+);

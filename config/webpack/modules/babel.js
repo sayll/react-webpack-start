@@ -1,6 +1,6 @@
 const babel = {
 
-  cacheDirectory: true,
+  // cacheDirectory: true,
 
   'presets': [
     [
@@ -14,12 +14,11 @@ const babel = {
     'react',
   ],
 
-  'plugins': ['transform-runtime'],
+  'plugins': ['transform-runtime',],
 
   'env': {
     'development': {
-      'presets': [],
-      'plugins': [],
+      'plugins': ['react-hot-loader/babel'],
     },
     'production': {
       'presets': [],

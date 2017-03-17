@@ -1,7 +1,6 @@
 const base              = require('./base/base.js'),
       files             = require('./base/files'),
       path              = require('path'),
-      util              = require('util'),
       glob              = require('glob'),
       HtmlWebpackPlugin = require('html-webpack-plugin'),
       ExtractTextPlugin = require('extract-text-webpack-plugin');
@@ -106,8 +105,8 @@ module.exports = (option = { dev: process.env.NODE_ENV === 'development' }) => (
           globPath: files.viewPath + '/**/*.?(css|pcss|sass|scss|less)',
           pathDir: files.viewPath + '/'
         }, VIEWS),
-        jsBundle  = debug ? path.join(files.jsName, util.format('[name].js')) : path.join(files.jsName, util.format('[name].[chunkhash:8].js')),
-        cssBundle = debug ? path.join(files.cssName, util.format('[name].css')) : path.join(files.cssName, util.format('[name].[contenthash:8].css'));
+        jsBundle  = debug ? `${files.jsName}/[name].js` : `${files.jsName}/[name].[chunkhash:8].js`,
+        cssBundle = debug ? `${files.cssName}/[name].css` : `${files.cssName}/[name].[contenthash:8].css`;
     return {
       'fileHtml': fileHtml,
       'fileJs': fileJs,
@@ -144,8 +143,6 @@ module.exports = (option = { dev: process.env.NODE_ENV === 'development' }) => (
     if (debug) {
       Object.keys(config.entry).forEach((e) => {
         config.entry[e].unshift(
-          'react-hot-loader/patch',
-          // activate HMR for React
           'webpack-hot-middleware/client?reload=true'
           //'eventsource-polyfill' // 热替换兼容IE
         )
