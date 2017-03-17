@@ -21,25 +21,32 @@ module.exports = {
   ],
 
   "rules": {
-    "no-console": "off",
-    // "arrow-parens": ["as-needed"],
+    "comma-dangle": ["error", "only-multiline"],
+
     "linebreak-style": [
       "error",
       "windows"
     ],
+
+    "no-console": "off",
+
     "quotes": [
       "error",
       "single"
     ],
+
+    "react/jsx-uses-vars": 1,
+
+    // "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+
     "semi": [
       "error",
       "always"
     ],
-    "react/jsx-uses-vars": 1,
-    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
   },
 
   "globals": {
-    //"document": false,
+    "document": false,
+    "window": false,
   }
 };

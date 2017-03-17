@@ -1,6 +1,6 @@
 const babel = {
 
-  // cacheDirectory: true,
+  cacheDirectory: false,
 
   'presets': [
     [

@@ -7,9 +7,8 @@ export default class Footer extends Component {
     }
 
     return (
-      /* eslint arrow-parens: 0 */
       <button
-        onClick={e => {
+        onClick={(e) => {
           e.preventDefault();
           this.props.onFilterChange(filter);
         }}

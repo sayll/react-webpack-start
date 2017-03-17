@@ -12,9 +12,8 @@ export default class AddTodo extends Component {
   render() {
     return (
       <div>
-        {/* eslint arrow-parens: 0 */}
-        <input type="text" ref={e => { this.input = e; }} />
-        <button onClick={(e) => this.handleClick(e)}>
+        <input type="text" ref={(e) => { this.input = e; }} />
+        <button onClick={e => this.handleClick(e)}>
           Add
         </button>
       </div>

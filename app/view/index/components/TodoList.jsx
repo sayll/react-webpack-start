@@ -3,9 +3,8 @@ import Todo from './Todo';
 
 export default function TodoList({ onTodoClick, todos }) {
   return (
-    /* eslint comma-dangle: 0, arrow-parens: 0,*/
     <ul>
-      {todos.map((todo) =>
+      {todos.map(todo =>
         <Todo
           {...todo}
           key={todo.id}

@@ -11,7 +11,5 @@ render(
   <Provider store={store}>
     <App />
   </Provider>,
-  /* global document: false*/
-  /* eslint comma-dangle: 0*/
   document.getElementById('root')
 );
