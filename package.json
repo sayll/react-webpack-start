@@ -1,5 +1,5 @@
 {
-  "name": "avalon-webpack-start",
+  "name": "react-webpack-start",
   "version": "0.2.1",
   "description": "webpack2，启用tree-shaking。移动开发+PC开发模式。react+redux。",
   "author": {
@@ -36,7 +36,7 @@
       }
     },
     "dll": {
-      "command": "webpack --optimize-minimize --config config/webpack/webpack.dll",
+      "command": "webpack --config config/webpack/webpack.dll",
       "env": {
         "NODE_ENV": "production"
       }
@@ -64,14 +64,14 @@
     }
   },
   "bugs": {
-    "url": "https://github.com/sayll/avalon-webpack-start/issues",
+    "url": "https://github.com/sayll/react-webpack-start/issues",
     "email": "kilol@qq.com"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sayll/avalon-webpack-start.git"
+    "url": "git+https://github.com/sayll/react-webpack-start.git"
   },
-  "homepage": "https://github.com/sayll/avalon-webpack-start#readme",
+  "homepage": "https://github.com/sayll/react-webpack-start#readme",
   "dependencies": {
     "immutable": "^4.0.0-rc.1",
     "react": "^15.4.2",

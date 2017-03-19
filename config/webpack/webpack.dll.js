@@ -4,8 +4,8 @@ const base       = require('./base/base.js'),
       webpack    = require('webpack'),
       Visualizer = require('webpack-visualizer-plugin');
 const vendors = [
-  // activate HMR for React
-  'react-hot-loader/patch',
+  // 'react-hot-loader/patch',
+  'react-hot-loader',
   /**
    * babel-polyfill 支持到es5
    * */
@@ -15,7 +15,6 @@ const vendors = [
   'immutable',
   'react',
   'react-dom',
-  'react-hot-loader',
   'react-redux',
   'react-router',
   'redux',

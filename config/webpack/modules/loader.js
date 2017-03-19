@@ -4,13 +4,13 @@ const base  = require('../base/base'),
 module.exports = (dev) => {
   return {
     rules: [
-      {
+      /*{
         test: /\.jsx$|\.js$/,
         enforce: "pre",
         exclude: [],
         include: [files.viewPath],
         use: ['happypack/loader?id=ESLint']
-      },
+      },*/
       {
         test: /\.(js|jsx)$/,
         include: [files.viewPath, files.staticPath, files.jsPath, files.htmlPath],

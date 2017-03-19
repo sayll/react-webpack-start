@@ -1,15 +1,25 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { createStore } from 'redux';
 import { Provider } from 'react-redux';
+import { AppContainer } from 'react-hot-loader';
+import store from './store';
 import App from './containers/App';
-import todoApp from './reducers';
 
-const store = createStore(todoApp);
+const Render = (Component) => {
+  render(
+    <AppContainer>
+      <Provider store={store}>
+        <Component />
+      </Provider>
+    </AppContainer>,
+    document.getElementById('root')
+  );
+};
 
-render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
-  document.getElementById('root')
-);
+Render(App);
+
+if (module.hot) {
+  module.hot.accept('./containers/App', () => {
+    Render(App);
+  });
+}

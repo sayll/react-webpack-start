@@ -1,45 +1,63 @@
 import { combineReducers } from 'redux';
-import { ADD_TODO, COMPLETE_TODO, SET_VISIBILITY_FILTER, VisibilityFilters } from '../actions';
+import {
+  INVALIDATE_SUBREDDIT,
+  SELECT_SUBREDDIT,
+  REQUEST_POSTS,
+  RECEIVE_POSTS,
+} from '../actions';
 
-const { SHOW_ALL } = VisibilityFilters;
-
-function visibilityFilter(state = SHOW_ALL, action) {
+function selectedSubreddit(state = 'reactjs', action) {
   switch (action.type) {
-    case SET_VISIBILITY_FILTER:
-      return action.filter;
+    case SELECT_SUBREDDIT:
+      return action.subreddit;
     default:
       return state;
   }
 }
 
-function todos(state = [], action) {
+function posts(state = {
+  isFetching: false,
+  didInvalidate: false,
+  items: []
+}, action) {
   switch (action.type) {
-    case ADD_TODO:
-      return [
-        ...state,
-        {
-          id: action.id,
-          text: action.text,
-          completed: false,
-        },
-      ];
-    case COMPLETE_TODO:
-      console.log(state);
-      return [
-        ...state.slice(0, action.index),
-        Object.assign({}, state[action.index], {
-          completed: true,
-        }),
-        ...state.slice(action.index + 1),
-      ];
+    case INVALIDATE_SUBREDDIT:
+      return Object.assign({}, state, {
+        didInvalidate: true
+      });
+    case REQUEST_POSTS:
+      return Object.assign({}, state, {
+        isFetching: true,
+        didInvalidate: false
+      });
+    case RECEIVE_POSTS:
+      return Object.assign({}, state, {
+        isFetching: false,
+        didInvalidate: false,
+        items: action.posts,
+        lastUpdated: action.receivedAt
+      });
     default:
       return state;
   }
 }
 
-const todoApp = combineReducers({
-  visibilityFilter,
-  todos,
+function postsBySubreddit(state = {}, action) {
+  switch (action.type) {
+    case INVALIDATE_SUBREDDIT:
+    case RECEIVE_POSTS:
+    case REQUEST_POSTS:
+      return Object.assign({}, state, {
+        [action.subreddit]: posts(state[action.subreddit], action)
+      });
+    default:
+      return state;
+  }
+}
+
+const rootReducer = combineReducers({
+  postsBySubreddit,
+  selectedSubreddit,
 });
 
-export default todoApp;
+export default rootReducer;
