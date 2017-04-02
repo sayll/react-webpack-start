@@ -1,5 +1,6 @@
 export const INVALIDATE_SUBREDDIT = 'INVALIDATE_SUBREDDIT';
 export const SELECT_SUBREDDIT = 'SELECT_SUBREDDIT';
+export const REQUEST_SELECT_SUBREDDIT = 'REQUEST_SELECT_SUBREDDIT';
 export const REQUEST_POSTS = 'REQUEST_POSTS';
 export const RECEIVE_POSTS = 'RECEIVE_POSTS';
 
@@ -13,6 +14,13 @@ export function invalidateSubreddit(subreddit) {
 export function selectSubreddit(subreddit) {
   return {
     type: SELECT_SUBREDDIT,
+    subreddit
+  };
+}
+
+export function requestSelectSubreddit(subreddit) {
+  return {
+    type: REQUEST_SELECT_SUBREDDIT,
     subreddit
   };
 }
@@ -35,7 +43,6 @@ function receivePosts(subreddit, json) {
 
 function fetchPosts(subreddit) {
   return (dispatch) => {
-    dispatch(requestPosts(subreddit));
     return fetch(`https://www.reddit.com/r/${subreddit}.json`)
       .then(response => response.json())
       .then(json => dispatch(receivePosts(subreddit, json)));

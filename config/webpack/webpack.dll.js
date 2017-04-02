@@ -20,8 +20,8 @@ const vendors = [
   'redux',
   'redux-immutablejs',
   'redux-logger',
-  'redux-saga',
-  'redux-thunk',
+  'redux-observable',
+  'rxjs',
 ];
 
 module.exports = {

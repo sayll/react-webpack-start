@@ -53,13 +53,13 @@ module.exports = (dev) => {
           },
           {
             loader: 'image-webpack-loader',
-            /*query: {
+            query: {
               progressive: true,
               pngquant: {
                 quality: '65-90',
                 speed: 4
               }
-            }*/
+            }
           }
         ]
       },

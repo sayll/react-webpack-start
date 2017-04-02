@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux';
+import { ajax } from 'rxjs/observable/dom/ajax';
 import {
   INVALIDATE_SUBREDDIT,
   SELECT_SUBREDDIT,
