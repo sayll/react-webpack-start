@@ -17,7 +17,7 @@ const middleware = [epicMiddleware];
 
 // 开发环境添加 Logger
 if (process.env.NODE_ENV !== 'production') {
-  middleware.push(createLogger());
+  middleware.push(createLogger);
 }
 // Epic 热替换
 if (module.hot) {

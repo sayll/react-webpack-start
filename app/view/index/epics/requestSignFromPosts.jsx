@@ -15,4 +15,3 @@ export default function requestSignFromPosts(action$, store, { getJSON }) {
       items: res.items
     }));
 }
-
