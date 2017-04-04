@@ -1,7 +1,7 @@
 {
   "name": "react-webpack-start",
-  "version": "0.2.1",
-  "description": "webpack2，启用tree-shaking。移动开发+PC开发模式。react+redux。",
+  "version": "0.0.1",
+  "description": "react+redux+rxjs",
   "author": {
     "name": "Sayll",
     "email": "kilol@qq.com",
@@ -79,6 +79,7 @@
   },
   "homepage": "https://github.com/sayll/react-webpack-start#readme",
   "dependencies": {
+    "es6-promise": "^4.1.0",
     "immutable": "^4.0.0-rc.2",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
@@ -87,9 +88,9 @@
     "react-router": "^4.0.0",
     "redux": "^3.6.0",
     "redux-immutablejs": "0.0.8",
-    "redux-logger": "^2.10.2",
+    "redux-logger": "^3.0.1",
     "redux-observable": "^0.14.1",
-    "rxjs": "^5.2.0"
+    "rxjs": "^5.3.0"
   },
   "devDependencies": {
     "babel-core": "^6.24.0",
@@ -103,7 +104,7 @@
     "babel-preset-stage-2": "^6.22.0",
     "better-npm-run": "0.0.14",
     "chai": "^3.5.0",
-    "css-loader": "^0.27.3",
+    "css-loader": "^0.28.0",
     "eslint": "^3.19.0",
     "eslint-config-airbnb": "^14.1.0",
     "eslint-loader": "^1.7.1",
@@ -127,7 +128,7 @@
     "postcss-cssnext": "^2.10.0",
     "postcss-loader": "^1.3.3",
     "rimraf": "^2.6.1",
-    "style-loader": "^0.13.2",
+    "style-loader": "^0.16.1",
     "url-loader": "^0.5.8",
     "webpack": "^2.3.2",
     "webpack-dashboard": "^0.3.0",

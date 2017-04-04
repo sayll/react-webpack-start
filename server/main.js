@@ -1,15 +1,14 @@
+const webpack = require('webpack');
+const express = require('express');
+const Dashboard = require('webpack-dashboard');
+const webpackDevMiddleware = require('webpack-dev-middleware');
+const webpackHotMiddleware = require('webpack-hot-middleware');
 const base = require('../config/webpack/base/base');
-
 const files = require('../config/webpack/base/files');
-
 const webpackConfig = require('../config/webpack/webpack.dev');
 
-const webpack = require('webpack');
-
-const express = require('express');
-
 const app = express();
-
+const DashboardPlugin = require('webpack-dashboard/plugin');
 
 /**
  * Apply Webpack HMR Middleware
@@ -18,13 +17,23 @@ const app = express();
 if (process.env.NODE_ENV === 'development') {
   const compiler = webpack(webpackConfig);
 
-  app.use(require('webpack-dev-middleware')(compiler, {
+  compiler.apply(
+    new DashboardPlugin(new Dashboard({
+      color: '#05ccfb',
+      minimal: true,
+      port: base.devPort
+    }).setData)
+  );
+
+  app.use(webpackDevMiddleware(compiler, {
     publicPath: files.cdnPath,
-    quiet: true,
-    stats: { colors: true }
+    stats: { colors: true },
+    noInfo: false,
+    quiet:  true,
+    hot:    true,
   }));
 
-  app.use(require('webpack-hot-middleware')(compiler));
+  app.use(webpackHotMiddleware(compiler));
 
   app.use('/', express.static(files.buildPath));
   app.listen(base.devPort, () => {
