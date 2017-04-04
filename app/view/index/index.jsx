@@ -19,7 +19,7 @@ function Render(Component) {
 }
 Render(App);
 
-// view 热替换
+// views 热替换
 if (module.hot) {
   module.hot.accept('./containers/App', () => {
     Render(App);
