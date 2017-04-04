@@ -1,8 +1,8 @@
 import { combineEpics } from 'redux-observable';
-import requestSelectSubreddit from './SelectSubreddit';
+import requestSignFromPosts from './requestSignFromPosts';
 
 const epics = [
-  requestSelectSubreddit
+  requestSignFromPosts,
 ];
 
 export default combineEpics(...epics);

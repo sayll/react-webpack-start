@@ -5,9 +5,9 @@ import { Provider } from 'react-redux';
 import { AppContainer } from 'react-hot-loader';
 import store from './store';
 import App from './containers/App';
+import './test';
 
-// 创建app
-function Render(Component) {
+const Render = (Component) => {
   render(
     <AppContainer>
       <Provider store={store}>
@@ -16,10 +16,10 @@ function Render(Component) {
     </AppContainer>,
     document.getElementById('root')
   );
-}
+};
+
 Render(App);
 
-// view 热替换
 if (module.hot) {
   module.hot.accept('./containers/App', () => {
     Render(App);

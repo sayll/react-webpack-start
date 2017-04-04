@@ -24,7 +24,6 @@ export const VisibilityFilters = {
  */
 
 export function addTodo(text, id) {
-  console.log(id);
   return { type: ADD_TODO, id, text };
 }
 

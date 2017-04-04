@@ -24,7 +24,7 @@ const vendors = [
   'rxjs',
 ];
 
-module.exports = {
+let config = {
   output: {
     path: files.dllPath,
     filename: '[name].js',
@@ -34,7 +34,6 @@ module.exports = {
     vendor: vendors,
   },
   plugins: [
-    new webpack.optimize.UglifyJsPlugin(),
     new webpack.DllPlugin({
       path: path.join(files.dllPath, 'vendors.json'),
       name: '[name]',
@@ -50,3 +49,9 @@ module.exports = {
     })
   ],
 };
+
+if(process.env.NODE_ENV === 'production'){
+  config.plugins.unshift(new webpack.optimize.UglifyJsPlugin());
+}
+
+module.exports = config;
