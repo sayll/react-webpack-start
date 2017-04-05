@@ -3,9 +3,8 @@ const base       = require('./base/base.js'),
       path       = require('path'),
       webpack    = require('webpack'),
       Visualizer = require('webpack-visualizer-plugin');
+
 const vendors = [
-  // 'react-hot-loader/patch',
-  'react-hot-loader',
   /**
    * babel-polyfill 支持到es5
    * */
@@ -18,11 +17,20 @@ const vendors = [
   'react-redux',
   'react-router',
   'redux',
-  'redux-immutablejs',
-  'redux-logger',
+  'redux-actions',
   'redux-observable',
+  'reselect',
   'rxjs',
 ];
+
+if(process.env.NODE_ENV === 'development'){
+  const arr = [
+    // 'react-hot-loader/patch',
+    'react-hot-loader',
+    'redux-logger',
+  ];
+  vendors.push(...arr);
+}
 
 let config = {
   output: {

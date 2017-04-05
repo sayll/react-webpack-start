@@ -50,11 +50,11 @@ module.exports = [
         //require("postcss-import")({root: files.cssPath}),
         //require("postcss-extend")(),
         //require("postcss-url")(),
-        /*require("postcss-px2rem")({
+        require("postcss-px2rem")({
           remUnit     : 75,
           remPrecision: 8,
           baseDpr     : 2 // 默认2倍视角
-        })*/
+        })
       ]
     }
   }),

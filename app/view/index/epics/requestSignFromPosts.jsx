@@ -1,7 +1,10 @@
 import { Observable } from 'rxjs/Observable';
 import * as Actions from '../actions';
 
-Observable.of('start').subscribe(console.log);
+Observable.of('start').subscribe((v) => {
+  console.log(v);
+  return v;
+});
 
 export default function requestSignFromPosts(action$, store, { getJSON }) {
   return action$.filter(action => action.type === Actions.REQUEST_POSTS().type)

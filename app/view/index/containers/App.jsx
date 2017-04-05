@@ -28,6 +28,7 @@ class App extends Component {
   render() {
     return (
       <div>
+        <p>test</p>
         <Sign fetchCode={this.fetchCode} fetchSign={this.fetchSign} />
       </div>
     );
