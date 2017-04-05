@@ -1,12 +1,12 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { requestSignPosts } from '../actions';
+import { REQUEST_POSTS } from '../actions';
 import Sign from '../components/Sign';
 
 class App extends Component {
   static propTypes() {
     return {
-      requestSignPosts: PropTypes.func.isRequired,
+      REQUEST_POSTS: PropTypes.func.isRequired,
     };
   }
 
@@ -22,7 +22,7 @@ class App extends Component {
   }
 
   fetchSign(fromData) {
-    this.props.requestSignPosts(fromData);
+    this.props.REQUEST_POSTS(fromData);
   }
 
   render() {
@@ -39,5 +39,5 @@ function mapStateToProps() {
 }
 
 export default connect(mapStateToProps, {
-  requestSignPosts
+  REQUEST_POSTS
 })(App);

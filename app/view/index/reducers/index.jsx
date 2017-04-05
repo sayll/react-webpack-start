@@ -1,33 +1,30 @@
 import { combineReducers } from 'redux';
-// import { ajax } from 'rxjs/observable/dom/ajax.js';
-import {
-  REQUEST_POSTS,
-  REQUEST_TESTS,
-} from '../actions';
+import * as Actions from '../actions';
 
-function postsBySubreddit(state = {}, action) {
-  switch (action.type) {
-    case REQUEST_POSTS:
-      return state;
-    default:
-      return state;
-  }
+function createReducer(initialState, handlers) {
+  return function reducer(state = initialState, action) {
+    if (Object.prototype.hasOwnProperty.call(handlers, action.type)) {
+      return handlers[action.type](state, action);
+    }
+    return state;
+  };
 }
 
-function requestTest(state = {}, action) {
-  switch (action.type) {
-    case REQUEST_TESTS:
-      return {
-        items: action.items
-      };
-    default:
-      return state;
+const requestTest = createReducer([], {
+  [Actions.REQUEST_TESTS](state, action) {
+    return {
+      items: action.items
+    };
   }
-}
-
-const rootReducer = combineReducers({
-  postsBySubreddit,
-  requestTest
 });
 
-export default rootReducer;
+const postsByOther = createReducer({}, {
+  [Actions.REQUEST_POSTS](state) {
+    return state;
+  }
+});
+
+export default combineReducers({
+  postsByOther,
+  requestTest
+});

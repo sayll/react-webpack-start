@@ -1,18 +1,14 @@
-export const REQUEST_TESTS = 'REQUEST_TESTS';
-export const REQUEST_POSTS = 'REQUEST_POSTS';
-export const RECEIVE_POSTS = 'RECEIVE_POSTS';
+import { createAction, createActions } from 'redux-actions';
 
-export function requestSignPosts(signFrom) {
-  return {
-    type: REQUEST_POSTS,
-    signFrom
-  };
-}
+export const REQUEST_TESTS = createAction('REQUEST_TESTS', amount => amount);
+export const REQUEST_POSTS = createAction('REQUEST_POSTS', amount => amount);
 
-export function requestTest(signFrom) {
-  return {
-    type: REQUEST_TESTS,
-    signFrom
-  };
-}
+export const { actionOne, actionTwo, actionThree } = createActions({
+  ACTION_ONE: (key, value) => ({ [key]: value }),
 
+  ACTION_TWO: [
+    first => [first],
+    (first, second) => ({ second })
+  ],
+}, 'ACTION_THREE');
+console.log(actionTwo([1, 2, 3], 'a', 2));
