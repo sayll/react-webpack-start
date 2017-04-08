@@ -20,7 +20,7 @@ function Render(Component) {
 Render(App);
 
 // views 热替换
-if (module.hot) {
+if (process.env.NODE_ENV !== 'production' && module.hot) {
   module.hot.accept('./containers/App', () => {
     Render(App);
   });

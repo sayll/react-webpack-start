@@ -16,14 +16,15 @@ const vendors = [
   'react-dom',
   'react-redux',
   'react-router',
+  'react-immutable-proptypes',
   'redux',
   'redux-actions',
   'redux-observable',
-  'reselect',
   'rxjs',
+  'styled-components'
 ];
 
-if(process.env.NODE_ENV === 'development'){
+if (process.env.NODE_ENV === 'development') {
   const arr = [
     // 'react-hot-loader/patch',
     'react-hot-loader',
@@ -58,7 +59,7 @@ let config = {
   ],
 };
 
-if(process.env.NODE_ENV === 'production'){
+if (process.env.NODE_ENV === 'production') {
   config.plugins.unshift(new webpack.optimize.UglifyJsPlugin());
 }
 

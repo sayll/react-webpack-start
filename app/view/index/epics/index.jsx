@@ -1,8 +1,5 @@
 import { combineEpics } from 'redux-observable';
-import requestSignFromPosts from './requestSignFromPosts';
 
-const epics = [
-  requestSignFromPosts,
-];
+const epics = [];
 
 export default combineEpics(...epics);

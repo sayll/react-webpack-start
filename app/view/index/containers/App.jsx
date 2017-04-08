@@ -1,44 +1,31 @@
-import React, { Component, PropTypes } from 'react';
+import React from 'react';
+import ImmutablePropTypes from 'react-immutable-proptypes';
 import { connect } from 'react-redux';
-import { REQUEST_POSTS } from '../actions';
-import Sign from '../components/Sign';
+import TodoList from './TodoList';
 
-class App extends Component {
-  static propTypes() {
-    return {
-      REQUEST_POSTS: PropTypes.func.isRequired,
-    };
-  }
-
-  constructor(props) {
-    super(props);
-    this.fetchCode = this.fetchCode.bind(this);
-    this.fetchSign = this.fetchSign.bind(this);
-  }
-
-  fetchCode(e) {
-    console.log(e, this);
-    return false;
-  }
-
-  fetchSign(fromData) {
-    this.props.REQUEST_POSTS(fromData);
-  }
-
-  render() {
-    return (
-      <div>
-        <p>test</p>
-        <Sign fetchCode={this.fetchCode} fetchSign={this.fetchSign} />
+function App({ todoList }) {
+  return (
+    <div>
+      <div style={{ background: 'rgba(0, 0, 0, 0.075)', padding: '20px', border: '1px solid #ccc' }}>
+        <TodoList todoList={todoList} />
       </div>
-    );
-  }
+      <p style={{ fontSize: '14px' }}>
+        <strong className="rt">
+          <a href="https://github.com/sayll">Sayll</a>
+        </strong>
+        <span className="rt">by&nbsp;</span>
+      </p>
+    </div>
+  );
 }
 
-function mapStateToProps() {
-  return {};
-}
+App.propTypes = {
+  todoList: ImmutablePropTypes.list.isRequired
+};
 
-export default connect(mapStateToProps, {
-  REQUEST_POSTS
-})(App);
+function mapStateToProps(state) {
+  return {
+    todoList: state.todos
+  };
+}
+export default connect(mapStateToProps, {})(App);

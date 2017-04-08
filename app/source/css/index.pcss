@@ -1,17 +1,22 @@
 /*@import "../font/icon/iconfont.css";*/
-@import "./parts/phoneReset.css";
+/*@import "./parts/phoneReset.css";*/
+@import "./parts/normalize.css";
+@import "./parts/class.css";
 
-html, body {
-  width: 100%;
-  height: 100%;
-  background: #eee;
-  color: #666;
+ol, ul {
+  padding: 0;
+  list-style: none;
 }
 
-#root {
-  width: 750px;
-  font-size: 24px; /*px*/
-  height: 100%;
-  margin: 0 auto;
-  background: #fff;
+a{
+  text-decoration: none;
+  color: #2d2d34;
+  &:hover{
+    text-decoration: underline;
+  }
+}
+
+img {
+  vertical-align: middle;
+  font-size: 0;
 }
