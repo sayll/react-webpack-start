@@ -28,9 +28,10 @@ if (process.env.NODE_ENV === 'development') {
   app.use(webpackDevMiddleware(compiler, {
     publicPath: files.cdnPath,
     stats: { colors: true },
-    noInfo: false,
+    noInfo: true,
     quiet:  true,
     hot:    true,
+    historyApiFallback: true,
   }));
 
   app.use(webpackHotMiddleware(compiler));
