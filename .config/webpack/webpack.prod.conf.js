@@ -40,17 +40,18 @@ const webpackConfig = merge(baseWebpackConfig, {
         exclude: [utils.resolve(cfg.path.views)],
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
-          use: [{
-            loader: 'css-loader',
-            query: {
-              modules: false,
-              outputStyle: 'expanded',
-              sourceMap: isProduction
-                ? cfg.build.sourceMap
-                : cfg.dev.sourceMap,
-              sourceMapContents: isProduction
-            }
-          }, 'postcss-loader']
+          use: [
+            {
+              loader: 'css-loader',
+              options: {
+                modules: false,
+                importLoaders: 1,
+                minimize: true,
+                sourceMap: false
+              }
+            },
+            'postcss-loader'
+          ]
         })
       },
       {
@@ -58,20 +59,19 @@ const webpackConfig = merge(baseWebpackConfig, {
         include: [utils.resolve(cfg.path.views)],
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
-          use: [{
-            loader: 'css-loader',
-            query: {
-              modules: {
+          use: [
+            {
+              loader: 'css-loader',
+              options: {
+                modules: true,
                 importLoaders: 1,
-                localIdentName: '[path]___[name]__[local]___[hash:base64:5]'
-              },
-              outputStyle: 'expanded',
-              sourceMap: isProduction
-                ? cfg.build.sourceMap
-                : cfg.dev.sourceMap,
-              sourceMapContents: isProduction
-            }
-          }, 'postcss-loader']
+                localIdentName: '[name]_[local]_[hash:base64:5]',
+                minimize: true,
+                sourceMap: false
+              }
+            },
+            'postcss-loader'
+          ]
         })
       }
     ]

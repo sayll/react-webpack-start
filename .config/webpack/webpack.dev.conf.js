@@ -15,8 +15,7 @@ Object.keys(webpackConfig.entry).forEach(name => {
 
 module.exports = merge(webpackConfig, {
   // cheap-module-eval-source-map is faster for development
-  devtool: process.argv.includes('debug') ?
-    'cheap-module-source-map' : 'cheap-module-eval-source-map',
+  devtool: 'cheap-module-source-map',
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     // 变异错误不跳出程序
@@ -38,15 +37,19 @@ module.exports = merge(webpackConfig, {
       {
         test: /\.(css|pcss)$/,
         include: [utils.resolve(cfg.path.views)],
-        use: ['style-loader', {
-          loader: 'css-loader',
-          options: {
-            modules: true,
-            importLoaders: 1,
-            localIdentName: '[name]__[local]',
-            minimize: false
-          }
-        }, 'postcss-loader']
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true,
+              importLoaders: 1,
+              localIdentName: '[name]_[local]_[hash:base64:5]',
+              minimize: false
+            }
+          },
+          'postcss-loader'
+        ]
       }
     ]
   }
