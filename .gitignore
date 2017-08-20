@@ -10,6 +10,7 @@ selenium-debug.log
 static/mocks
 static/libs
 build/
+dist/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
