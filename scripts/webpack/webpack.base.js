@@ -1,7 +1,6 @@
 const help = require('./help')
 const core = require('../core')
 const HTMLPlugin = require('html-webpack-plugin')
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const HardSourceWebpackPlugin = require('hard-source-webpack-plugin')
 
@@ -75,22 +74,5 @@ module.exports = {
         }]
       }
     ]
-  },
-  optimization: {
-    minimize: true,
-    minimizer: [
-      new UglifyJSPlugin({
-        parallel: true,
-        uglifyOptions: {
-          output: {
-            comments: false
-          },
-          compress: {
-            dead_code: true
-          }
-        }
-      })
-    ],
-    runtimeChunk: true
   }
 }

@@ -1,7 +1,9 @@
-const help = require('./help')
-const core = require('../core')
 const webpack = require('webpack')
 const webpackMerge = require('webpack-merge')
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
+
+const help = require('./help')
+const core = require('../core')
 const webpackBase = require('./webpack.base')
 
 help.removeFiles([core.files.dist])
@@ -25,5 +27,22 @@ module.exports = webpackMerge(webpackBase, {
   ],
   module: {
     rules: []
+  },
+  optimization: {
+    minimize: true,
+    minimizer: [
+      new UglifyJSPlugin({
+        parallel: true,
+        uglifyOptions: {
+          output: {
+            comments: false
+          },
+          compress: {
+            dead_code: true
+          }
+        }
+      })
+    ],
+    runtimeChunk: true
   }
 })
