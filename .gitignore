@@ -1,25 +1,5 @@
-.idea/
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-test/unit/coverage
-test/e2e/reports
-selenium-debug.log
-
-.happypack/
-static/mocks
-static/libs
-build/
-dist/
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-test/unit/coverage
-test/e2e/reports
-selenium-debug.log
-
 # 项目
-static/libs/*
+dist
 
 ## 生成文件
 /_*
@@ -34,11 +14,8 @@ bower_components
 ## Sublime
 *.sublime-workspace
 
-## Webstorm
-.idea/workspace.xml
-.idea/tasks.xml
-.idea/dataSources*
-.idea/libraries/
+## WebStorm
+.idea
 *.iws
 
 ## Visual Studio

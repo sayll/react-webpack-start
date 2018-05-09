@@ -1,3 +1,6 @@
-build
-.config
-dist
+## 项目
+scripts
+app/utils
+
+## Node.js
+node_modules
