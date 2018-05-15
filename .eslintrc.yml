@@ -32,3 +32,4 @@ rules:
 globals:
   store: true
   window: false
+  require: false

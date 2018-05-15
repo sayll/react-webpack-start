@@ -23,7 +23,9 @@ module.exports = {
       hash: false,
       inject: true
     }),
-    new HardSourceWebpackPlugin({ checkSyntacticErrors: true })
+    new HardSourceWebpackPlugin({
+      checkSyntacticErrors: true
+    })
   ],
   module: {
     rules: [

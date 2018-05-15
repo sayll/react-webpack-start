@@ -11,7 +11,7 @@
           ]
         },
         "modules": false,
-        "useBuiltIns": "entry", // usage
+        "useBuiltIns": "entry",
         "loose": false,
         "debug": false,
         "include": []

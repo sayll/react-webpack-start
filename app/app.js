@@ -13,6 +13,8 @@ Render(App)
 
 // 热更新
 module.hot && module.hot.accept('./pages', () => {
-  // if you are using harmony modules ({modules:true})
-  Render(require('./pages'))
+  // 正常使用
+  Render(App)
+  // 代码分割
+  // Render(require('./pages'))
 })
