@@ -1,3 +1,4 @@
+parser: babel-eslint
 env:
   es6: true
   node: true
@@ -18,6 +19,7 @@ rules:
   eol-last: off # 非空文件必需有空行
   space-before-function-paren: off # 函数名后，不强制跟空格
   no-unused-vars: warn # 变量未使用
+  no-trailing-spaces: off # 拖尾空格
 
   # JSX 规则
   jsx-quotes: # jsx属性必需双引号
@@ -33,3 +35,5 @@ globals:
   store: true
   window: false
   require: false
+  Blob: false
+  FileReader: false

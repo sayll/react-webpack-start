@@ -27,5 +27,5 @@ module.exports = {
     assetsPath: 'assets', // 指向打包资源
     publicPath: './'
   },
-  devtool: 'cheap-source-map' // cheap-module-eval-source-map
+  devtool: 'cheap-module-eval-source-map' // cheap-source-map
 }
