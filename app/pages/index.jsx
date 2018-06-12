@@ -86,8 +86,8 @@ class App extends React.Component {
         <input
           multiple
           type="file"
-          directory="true"
-          webkitdirectory="true"
+          // directory="true"
+          // webkitdirectory="true"
           name="文件上传"
           ref={e => (this.$input = e)}
         />
